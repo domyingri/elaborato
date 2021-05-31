@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<?php
+	@session_start();
+	$User="";
+	if(isset($_SESSION["UserIn"])) $User=$_SESSION["UserIn"];
+?>
+<html>
+<head>
+<title> GO KART SQUILLE S.R.L</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+<!-- grid-slider -->
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+<!-- //grid-slider -->
+<!---calender-style---->
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<!---//calender-style---->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-confirm.min.js"></script>
+
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});
+
+		function LoadUser() {
+			// alert("Richiama form login");
+
+		    $.dialog({
+		        title: '<h4 style="color:brown">Accesso area riservata</h4>',
+		        columnClass: 'small', type: 'red', icon: 'fa fa-warning',
+		        content: function() {
+				              var self = this; 
+				              self.setContent("");
+				              return $.ajax({
+				                    url: 'logUser.php', method: 'get',
+				              }).done(function(response) {
+				                    self.setContentAppend(response);
+				              }).fail(function(){
+				              }).always(function(){
+				              });
+		        }         
+		    });	
+		}
+</script>
+</head>
+<body>
+<!-- start header_bottom -->
+	  <div class="header-bottom">
+		 <div class="container">
+			<div class="header-bottom_left">
+				<i class="phone"> </i><span>+39 0823/250006</span>
+			</div>
+			<div class="social">	
+			   <ul>	
+				  <li class="facebook"><a href="https://www.facebook.com/domenico.ingriselli/"><span> </span></a></li>
+				  <li class="twitter"><a href="#"><span> </span></a></li>
+				  <li class="google"><a href="domyingri@gmail.com"><span> </span></a></li>
+				  <li class="instagram"><a href="#"><span> </span></a></li>							
+			   </ul>
+		   </div>
+		   <div class="clear"></div>
+		</div>
+	  </div>
+	  <!-- start menu -->
+    <div class="menu">
+	  <div class="container">
+		 <div class="logo">
+		 	<a href="index.php"><img src="C:\xampp\htdocs\kartingcentre\images\logo.png" alt=""/></a>
+		 </div>
+		 <div class="h_menu4"><!-- start h_menu4 -->
+		    <a class="toggleMenu" href="#">Menu</a>
+			 <ul class="nav">
+			   <li><a href="index.php">Home</a></li>
+			   <li class="active"><a href="about.html">Chi siamo</a></li>
+			   <li><a href="trainers.html">Piste</a></li>
+			   <li><a href="contact.html">Contatti</a></li>
+			   <li><a href="javascript: LoadUser();">Area Personale</a></li>
+			 </ul>
+			  <script type="text/javascript" src="js/nav.js"></script>
+		  </div><!-- end h_menu4 -->
+		 <div class="clear"></div>
+	  </div>
+	</div>
+	<!-- end menu -->
+	<div class="main">
+	   <div class="about_banner_img"><img src="https://www.avanticreative.co.uk/ekmps/shops/06a23f/images/pirelli-banner-622-p.jpg" class="img-responsive" alt=""/></div>
+		 <div class="about_banner_wrap">
+      	    <h1 class="m_11">Chi siamo</h1>
+      	 </div>
+
+	      <div class="container">
+	       <div class="about_trainer">
+		      <h3 class="m_2"> I TITOLARI</h3>
+		      <div class="row about_box">
+		      	<div class="col-md-4">
+				  <div class="box1">
+				  	<div class="box1_left">
+ 					  <img src="images/proprietario.png" class="img-responsive" alt=""/>				  	
+					  <div class="desc1">
+						<h3>Ingriselli Domenico<br><span class="m_text"> PROPRIETARIO</span></h3>
+						<p>Grande passione ed esperienza nel mondo dei go-kart.</p>
+						<div class="coursel_list">
+							<i class="a_heart"> </i>
+							<i class="like1"> </i>
+						</div>
+						<div class="coursel_list1">
+							<i class="a_twt"> </i>
+							<i class="a_fb"> </i>
+						</div>
+						<div class="clear"></div>
+					 </div>
+					</div>
+					<div class="box1_right">
+ 					 <h4>Ruolo:</h4>
+ 					 <p> Proprietario e direttore generale della società "GO KART SQUILLE S.R.L.". Azionista di maggioranza </p>
+ 					  <h4>Motto:</h4>
+ 					 <p class="para1"> Le strade non sono fatte per correre, le piste sì.</p>
+				    </div>
+				   <div class="clear"></div>
+				  </div>
+				</div>
+				<div class="col-md-4">
+				  <div class="box2">
+				  	<div class="box1_left">
+ 					  <img src="images/socio.jpg" class="img-responsive" alt=""/>				  		
+					  <div class="desc2">
+						<h3>Vardaro Antonio<br><span class="m_text">Socio</span></h3>
+						<p> Grande esperienza nel mondo del motorsport. </p>
+						<div class="coursel_list">
+							<i class="heart1"> </i>
+							<i class="like"> </i>
+						</div>
+						<div class="coursel_list1">
+							<i class="twt"> </i>
+							<i class="fb"> </i>
+						</div>
+						<div class="clear"></div>
+					 </div>
+					</div>
+					<div class="box1_right">
+ 					 <h4 class="right_text">Ruolo:</h4>
+ 					 <p class="right_text1">Socio e direttore finanziario della società "GO KART SQUILLE S.R.L."</p>
+ 					 <br>
+ 					 <br>
+ 					 <h4 class="right_text">Motto:</h4>
+ 					 <p class="right_text2">"Quando sono in pista scordo tutti i problemi.</p>
+ 					 <br>
+				    </div>
+				   <div class="clear"></div>
+				  </div>
+				</div>
+				<div class="col-md-4">
+				  <div class="box1">
+				  	<div class="box1_left">
+ 					  <img src="https://www.docarpneumatici.com/wp-content/uploads/2018/04/logo-pirelli-home-domocar.png" class="img-responsive" alt=""/>				  		
+					  <div class="desc1">
+						<h3>Pirelli<br><span class="m_text">MAIN SPONSOR</span></h3>
+						<p>Azienda produttrice e sviluppatrice di Pneumatici</p>
+						<div class="coursel_list">
+							<i class="a_heart"> </i>
+							<i class="like1"> </i>
+						</div>
+						<div class="coursel_list1">
+							<i class="a_twt"> </i>
+							<i class="a_fb"> </i>
+						</div>
+						<div class="clear"></div>
+					 </div>
+					</div>
+					<div class="box1_right">
+ 					 <h4>Ruolo:</h4>
+ 					 <p> MAIN SPONSOR della società "GO KART SQUILLE S.R.L."</p>
+ 					 <br>
+ 					  <h4>Motto:</h4>
+ 					 <p class="para1"> "La potenza è nulla senza il controllo" è stato per anni il motto di Pirelli, vero e proprio slogan della società di pneumatici che ha accompagnato il lancio e il ciclo vitale della maggior parte dei motorsport.</p>
+				    </div>
+				   <div class="clear"></div>
+				  </div>
+				</div>
+				<div class="clear"></div>
+		     </div>
+		   </div>
+	    </div>
+		 
+		  <div class="footer-bottom">
+		   <div class="container">
+		 	 <div class="row section group">
+				<div class="col-md-4">
+				   <h4 class="m_7">Newsletter</h4>
+				   <p class="m_8">Iscriviti alla nostra Newsletter e racconta ciò che pensi!.</p>
+				      <form class="subscribe">
+			             <input type="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
+					  </form>
+			          <div class="subscribe1">
+			            <a href="#">Invia E-mail<i class="but_arrow"> </i></a>
+			          </div>
+				</div>
+				<div class="col-md-4">
+				
+					<p class="m_9">Offriamo un vasto numero di piste, per tutti i piloti, dagli amatori ai professionisti, da poterne usufruire privatamente o partecipando alle nostre attività! Cosa aspetti? Comincia subito!</p>
+					<p class="address">Telefono : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="m_10">+39 0823/250006</span></p>
+					<p class="address">Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="m_10">domyingri@gmail.com</span></p>
+				</div>
+				<div class="col-md-4">
+					<ul class="list">
+						<h4 class="m_7">Menu</h4>
+						<li><a href="about.html">Chi Siamo</a></li>
+						<li><a href="trainers.html">Piste</a></li>
+						<li><a href="javascript: LoadUser();">Area Personale</a></li>
+						<li><a href="contact.html">Contatti</a></li>
+					</ul>
+					<ul class="list1">
+						<h4 class="m_7">Community</h4>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Forum</a></li>
+						<li><a href="#">Support</a></li>
+						<li><a href="#">Newsletter</a></li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+	  		  </div>
+		 	</div>
+		 </div>
+		 <div class="copyright">
+		  <div class="container">
+		    <div class="copy">
+		        <p>© 2021 Template by <a href="https://www.facebook.com/domenico.ingriselli/" target="_blank"> DELUXE DESIGN</a></p>
+		    </div>
+		    <div class="social">	
+			   <ul>	
+				  <li class="facebook"><a href="https://www.facebook.com/domenico.ingriselli/"><span> </span></a></li>
+				  <li class="twitter"><a href="#"><span> </span></a></li>
+				  <li class="google"><a href="#"><span> </span></a></li>
+				  <li class="instagram"><a href="#"><span> </span></a></li>							
+			   </ul>
+		    </div>
+		   <div class="clear"></div>
+		  </div>
+	     </div>
+</body>
+</html>
